@@ -1,0 +1,31 @@
+type Query {
+  recipes(limit: Int): [Recipe]
+  recipe(id: ID!): Recipe
+}
+
+type Mutation {
+  createRecipe(data: CreateRecipeInput!): Recipe
+  deleteRecipe(id: ID!): Boolean
+  updateRecipeData(id: ID!, data: UpdateRecipeInput): Recipe
+}
+
+type Recipe {
+  _id: String
+  name: String!
+  description: String!
+  likes: Int
+  dislikes: Int
+  createdAt: String!
+}
+
+input CreateRecipeInput {
+  name: String!
+  description: String!
+}
+
+input UpdateRecipeInput {
+  name: String
+  description: String
+  likes: Int
+  dislikes: Int
+}
